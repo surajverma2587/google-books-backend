@@ -1,0 +1,31 @@
+{
+  "name": "google-books-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/surajverma2587/google-books-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/surajverma2587/google-books-backend/issues"
+  },
+  "homepage": "https://github.com/surajverma2587/google-books-backend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "apollo-server": "^3.6.3",
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
+    "graphql": "^16.3.0",
+    "mongoose": "^6.2.3"
+  }
+}
