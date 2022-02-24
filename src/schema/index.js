@@ -2,6 +2,7 @@ const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Book {
+    id: ID
     title: String
     authors: [String]
     pageCount: Int
@@ -24,6 +25,23 @@ const typeDefs = gql`
     search(searchTerm: String!): [Book]
     library(libraryId: ID!): Library
     libraries: [Library]
+  }
+
+  input BookInput {
+    id: ID
+    title: String
+    authors: [String]
+    pageCount: Int
+    imageUrl: String
+    publishDate: String
+    categories: [String]
+    rating: Float
+    previewUrl: String
+    description: String
+  }
+
+  type Mutation {
+    addBookToLibrary(book: BookInput!, libraryId: ID!): Library
   }
 `;
 

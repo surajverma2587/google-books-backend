@@ -8,7 +8,8 @@ const search = async (_, { searchTerm }) => {
 
     const { data } = await axios.get(url);
 
-    const books = data.items.map(({ volumeInfo, searchInfo }) => ({
+    const books = data.items.map(({ id, volumeInfo, searchInfo }) => ({
+      id,
       title: volumeInfo?.title,
       authors: volumeInfo?.authors,
       pageCount: volumeInfo?.pageCount,
