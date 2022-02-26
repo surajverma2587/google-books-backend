@@ -40,8 +40,13 @@ const typeDefs = gql`
     description: String
   }
 
+  input LibraryInput {
+    name: String!
+  }
+
   type Mutation {
     addBookToLibrary(book: BookInput!, libraryId: ID!): Library
+    addLibrary(library: LibraryInput!): Library
   }
 `;
 
