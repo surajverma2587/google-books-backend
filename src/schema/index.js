@@ -21,6 +21,18 @@ const typeDefs = gql`
     bookCount: Int
   }
 
+  type User {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+  }
+
+  type Auth {
+    token: ID!
+    user: User!
+  }
+
   type Query {
     search(searchTerm: String!): [Book]
     library(libraryId: ID!): Library
@@ -44,9 +56,22 @@ const typeDefs = gql`
     name: String!
   }
 
+  input AddUserInput {
+    name: String!
+    email: String!
+    password: String!
+  }
+
+  input LoginUserInput {
+    email: String!
+    password: String!
+  }
+
   type Mutation {
     addBookToLibrary(book: BookInput!, libraryId: ID!): Library
     addLibrary(library: LibraryInput!): Library
+    addUser(user: AddUserInput!): Auth
+    loginUser(user: LoginUserInput!): Auth
   }
 `;
 

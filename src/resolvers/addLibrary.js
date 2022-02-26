@@ -1,10 +1,20 @@
+const { AuthenticationError } = require("apollo-server");
 const { Library } = require("../models");
 
-const addLibrary = async (_, { library }) => {
-  console.log(library);
-  const newLibrary = await Library.create(library);
+const addLibrary = async (_, { library }, context) => {
+  try {
+    if (!context.user) {
+      throw new AuthenticationError(
+        "You are not authorised to perform this operation"
+      );
+    }
 
-  return newLibrary;
+    const newLibrary = await Library.create(library);
+
+    return newLibrary;
+  } catch (error) {
+    console.log(`[ERROR]: Failed to add library | ${error.message}`);
+  }
 };
 
 module.exports = addLibrary;
